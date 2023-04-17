@@ -3,37 +3,52 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 3rem;
   min-height: 100vh;
 }
-
 .description {
-  display: inherit;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 60% 10% 10% 20%;
+  justify-content: space-between;
+  align-items: stretch;
   cursor: pointer;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
   font-family: var(--font-mono);
   padding: 1rem;
+}
+.action {
+  font-size: 4rem;
   border: 3px ridge blue;
   font-weight: bold;
   color: blue;
+  text-align: center;
 }
-.description:hover {
+.action:hover {
   color: rebeccapurple;
   border: 3px ridge rebeccapurple;
   background: #ffffff88;
 }
-
+.input,.label {
+  margin: 0.5rem;
+}
+.input {
+  font-size: 3rem;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
 .center {
+  max-width: var(--max-width);
   font-weight: 700;
   font-family: var(--font-mono);
   font-size: 24px;
   width: 90vw;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
