@@ -3,8 +3,8 @@ import styles from '@/styles/Home.module.css'
 import {useState} from 'react';
 import {PotaIpsum} from 'pota-ipsum';
 import Image from "next/image";
-import {bundles} from "./bundle";
-import {getVersion} from "@/pages/util";
+import {bundles} from "@/lib/bundle";
+import {getVersion} from "@/lib/util";
 
 const pota = new PotaIpsum({
     sentencesPerParagraph: {
