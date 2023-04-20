@@ -2,6 +2,9 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import {useState} from 'react';
 import {PotaIpsum} from 'pota-ipsum';
+import Image from "next/image";
+import {bundles} from "./bundle";
+import {getVersion} from "@/pages/util";
 
 const pota = new PotaIpsum({
     sentencesPerParagraph: {
@@ -18,6 +21,9 @@ export default function Home() {
     const [text, setText] = useState<string>('');
     const [count, setCount] = useState(5);
     const [what, setWhat] = useState('paras');
+    const [lang, setLang] = useState<keyof typeof bundles>('bg');
+
+    const bundle = bundles[lang];
 
     const generate = () => {
         const amount = count || 3
@@ -47,7 +53,7 @@ export default function Home() {
             </Head>
             <main className={styles.main}>
                 <div className={styles.description}>
-                    <div className={styles.action} onClick={generate}>Generate</div>
+                    <div className={styles.action} onClick={generate}>{bundle.generate}</div>
                     <div/>
                     <input className={styles.input} type="text" name="amount" id="amount"
                            defaultValue={count}
@@ -57,25 +63,36 @@ export default function Home() {
                             <input type="radio" name="what" value="paras" id="paras"
                                    defaultChecked={"paras" === what}
                                    onChange={() => setWhat("paras")}
-                            /> paragraphs
+                            /> {bundle.paragraphs}
                         </label>
                         <label htmlFor="sents">
                             <input type="radio" name="what" value="sents" id="sents"
                                    defaultChecked={"sents" === what}
                                    onChange={() => setWhat("sents")}
-                            /> sentences
+                            /> {bundle.sentences}
                         </label>
                         <label htmlFor="words">
                             <input type="radio" name="what" value="words" id="words"
                                    defaultChecked={"words" === what}
                                    onChange={() => setWhat("words")}
-                            /> words
+                            /> {bundle.words}
                         </label>
                     </div>
+                    <div className={styles.flags}>
+                        <Image alt="Bergamasc" width="24" height="24"
+                               onClick={() => setLang("bg")}
+                               src="/favicon.ico"/>
+                        <Image alt="Italià" width="24" height="18"
+                               onClick={() => setLang("it")}
+                               src="https://flagcdn.com/24x18/it.png"/>
+                        <Image alt="Inglés" width="24" height="18"
+                               onClick={() => setLang("en")}
+                               src="https://flagcdn.com/24x18/us.png"/>
+                    </div>
                 </div>
-
                 <textarea className={styles.center} readOnly value={text}/>
             </main>
+            <div className={styles.credits}>{getVersion()}</div>
         </>
     )
 }
