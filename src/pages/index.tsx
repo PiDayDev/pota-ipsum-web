@@ -49,7 +49,7 @@ export default function Home() {
                 <title>Pota Ipsum</title>
                 <meta name="description" content="Generated Lorem ipsum placeholder text with Berghem flavor"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="./favicon.ico"/>
             </Head>
             <main className={styles.main}>
                 <div className={styles.description}>
@@ -81,7 +81,7 @@ export default function Home() {
                     <div className={styles.flags}>
                         <Image alt="Bergamasc" width="24" height="24"
                                onClick={() => setLang("bg")}
-                               src="/favicon.ico"/>
+                               src="./favicon.ico"/>
                         <Image alt="Italià" width="24" height="18"
                                onClick={() => setLang("it")}
                                src="https://flagcdn.com/24x18/it.png"/>
