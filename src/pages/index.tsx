@@ -79,9 +79,10 @@ export default function Home() {
                         </label>
                     </div>
                     <div className={styles.flags}>
-                        <Image alt="Bergamasc" width="24" height="24"
+                        <img alt="Bergamasc" width="24" height="24"
                                onClick={() => setLang("bg")}
-                               src="/favicon.ico"/>
+                               src="/favicon.ico"
+                               style={{cursor: 'pointer'}}/>
                         <Image alt="Italià" width="24" height="18"
                                onClick={() => setLang("it")}
                                src="https://flagcdn.com/24x18/it.png"/>
