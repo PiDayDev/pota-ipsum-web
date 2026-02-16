@@ -5,6 +5,7 @@ import {PotaIpsum} from 'pota-ipsum';
 import Image from "next/image";
 import {bundles} from "@/lib/bundle";
 import {getVersion} from "@/lib/util";
+import {useBasePath} from "@/lib/useBasePath";
 
 const pota = new PotaIpsum({
     sentencesPerParagraph: {
@@ -22,6 +23,7 @@ export default function Home() {
     const [count, setCount] = useState(5);
     const [what, setWhat] = useState('paras');
     const [lang, setLang] = useState<keyof typeof bundles>('bg');
+    const basePath = useBasePath();
 
     const bundle = bundles[lang];
 
@@ -49,7 +51,6 @@ export default function Home() {
                 <title>Pota Ipsum</title>
                 <meta name="description" content="Generated Lorem ipsum placeholder text with Berghem flavor"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={styles.main}>
                 <div className={styles.description}>
@@ -81,7 +82,7 @@ export default function Home() {
                     <div className={styles.flags}>
                         <img alt="Bergamasc" width="24" height="24"
                                onClick={() => setLang("bg")}
-                               src="/favicon.ico"
+                             src={`${basePath}/favicon.ico`}
                                style={{cursor: 'pointer'}}/>
                         <Image alt="Italià" width="24" height="18"
                                onClick={() => setLang("it")}
