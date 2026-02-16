@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const repoName = 'pota-ipsum-web'; // Cambia se il nome repo è diverso
+const repoName = 'pota-ipsum-web';
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
 const basePath = isGitHubActions ? `/${repoName}` : '';
 
