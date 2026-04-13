@@ -9,14 +9,6 @@ const nextConfig = {
   basePath,
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'flagcdn.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
   },
 }
 
